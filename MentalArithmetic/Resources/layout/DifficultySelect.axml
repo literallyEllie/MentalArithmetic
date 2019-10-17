@@ -14,7 +14,7 @@
 		android:textAppearance="?android:attr/textAppearanceLarge"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:id="@+id/no-select0"
+		android:id="@+id/no_select5"
 		android:layout_marginTop="23.5dp"
 		android:textColor="#ff283593"/>
 
@@ -33,13 +33,13 @@
 		android:text="This mode is good for warming up."
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:id="@+id/no-select1"
+		android:id="@+id/no_select6"
 		android:layout_marginLeft="15.0dp" />
 	<TextView
 		android:text="You can take as long as you want on each question."
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:id="@+id/no-select2"
+		android:id="@+id/no_select7"
 		android:layout_marginLeft="15.0dp"
 		android:textColor="#ff388e3c" />
 
@@ -58,13 +58,13 @@
 		android:text="This mode is good for testing your knowledge."
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:id="@+id/no-select3"
+		android:id="@+id/no_select8"
 		android:layout_marginLeft="15.0dp" />
 	<TextView
 		android:text="You have 20 seconds to answer each question."
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:id="@+id/no-select4"
+		android:id="@+id/no_select9"
 		android:layout_marginLeft="15.0dp"
 		android:textColor="#ffe65100" />
 
@@ -83,13 +83,13 @@
 		android:text="This mode is good if you're up for a real challenge!"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:id="@+id/no-select5"
+		android:id="@+id/no_select10"
 		android:layout_marginLeft="15.0dp" />
 	<TextView
 		android:text="You have only 10 seconds to answer each question."
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:id="@+id/no-select6"
+		android:id="@+id/no_select11"
 		android:layout_marginLeft="15.0dp"
 		android:textColor="#ff880e4f" />
 </LinearLayout>

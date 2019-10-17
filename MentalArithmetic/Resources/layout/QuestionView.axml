@@ -24,7 +24,7 @@
 		android:layout_height="wrap_content"
 		android:id="@+id/txtQuestionBig"
 		android:textAlignment="center"
-		android:textSize="50"
+		android:textSize="50.0dp"
 		android:layout_marginTop="7.0dp" />
 
 </LinearLayout>

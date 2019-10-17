@@ -16,10 +16,10 @@
 		android:layout_height="wrap_content"
 		android:minWidth="25px"
 		android:minHeight="25px"
-		android:id="@+id/no-select0"
+		android:id="@+id/no_select12"
 		android:textAlignment="center"
 		android:layout_marginTop="30.0dp"
-		android:textSize="35"
+		android:textSize="35.0dp"
 		android:textColor="#ff1b5e20"
 		android:textStyle="bold"
 		android:layout_marginBottom="30.0dp" />
@@ -27,9 +27,9 @@
 		android:text="Here is how you did:"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:id="@+id/no-select1"
+		android:id="@+id/no_select13"
 		android:textColor="#ff000000"
-		android:textSize="20"
+		android:textSize="20.0dp"
 		android:layout_marginBottom="5.5dp" />
 	<TextView
 		android:text="0/0"
@@ -37,7 +37,7 @@
 		android:layout_height="wrap_content"
 		android:id="@+id/txtQRight"
 		android:textColor="#ff4caf50"
-		android:textSize="30"
+		android:textSize="30.0dp"
 		android:layout_marginLeft="10.0dp" />
 	<TextView
 		android:text="You answered 0/0 questions"
@@ -66,7 +66,7 @@
 		android:layout_height="wrap_content"
 		android:id="@+id/txtQImproveHeader"
 		android:textColor="#ff212121"
-		android:textSize="20"
+		android:textSize="20.0dp"
 		android:layout_marginTop="16.5dp" />
 	<TextView
 		android:text="1 + 1"
@@ -74,7 +74,7 @@
 		android:layout_height="wrap_content"
 		android:id="@+id/txtQImprove0"
 		android:textColor="#ffbf360c"
-		android:textSize="15"
+		android:textSize="15.0dp"
 		android:layout_marginLeft="10.0dp" />
 	<Button
 		android:text="Go again"
