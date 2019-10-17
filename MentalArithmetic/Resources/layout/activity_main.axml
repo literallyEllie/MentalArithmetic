@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:paddingLeft="16dp"
+	android:paddingRight="16dp"
+	android:orientation="vertical"
+	android:textAlignment="center">
+	<TextView
+		android:text="Are you ready to improve?"
+		android:textAppearance="?android:attr/textAppearanceLarge"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:minWidth="25px"
+		android:minHeight="25px"
+		android:id="@+id/no-select0"
+		android:layout_marginTop="32.5dp"
+		android:textAlignment="center"
+		android:textColor="#ffb71c1c" />
+	<TextView
+		android:text="How to play:"
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/no-select1"
+		android:layout_marginTop="31.0dp"
+		android:textColor="#ff283593" />
+	<TextView
+		android:text="1) Select a difficulty."
+		android:textAppearance="?android:attr/textAppearanceSmall"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/no-select2" />
+	<TextView
+		android:text="2) Answer the questions."
+		android:textAppearance="?android:attr/textAppearanceSmall"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/no-select3" />
+	<TextView
+		android:text="3) Improve your skills!"
+		android:textAppearance="?android:attr/textAppearanceSmall"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/no-select4" />
+	<Button
+		android:text="Start"
+		android:layout_width="match_parent"
+		android:layout_height="100.0dp"
+		android:id="@+id/btnStart"
+		android:textAllCaps="true"
+		android:layout_marginBottom="40.5dp"
+		android:layout_marginTop="73.5dp" />
+
+
+</LinearLayout>

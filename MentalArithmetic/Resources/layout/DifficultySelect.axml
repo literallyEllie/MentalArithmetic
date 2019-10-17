@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:paddingLeft="16dp"
+	android:paddingRight="16dp"
+	android:orientation="vertical"
+	android:textAlignment="center">
+	<TextView
+		android:text="Difficulty select:"
+		android:textAppearance="?android:attr/textAppearanceLarge"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/no-select0"
+		android:layout_marginTop="23.5dp"
+		android:textColor="#ff283593"/>
+
+	// Easy // 
+	
+	<Button
+		android:text="Easy"
+		android:layout_width="match_parent"
+		android:layout_height="75.0dp"
+		android:minWidth="25px"
+		android:minHeight="25px"
+		android:id="@+id/btnEasy"
+		android:layout_marginTop="31.5dp"
+		android:textColor="#ff43a047" />
+	<TextView
+		android:text="This mode is good for warming up."
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/no-select1"
+		android:layout_marginLeft="15.0dp" />
+	<TextView
+		android:text="You can take as long as you want on each question."
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/no-select2"
+		android:layout_marginLeft="15.0dp"
+		android:textColor="#ff388e3c" />
+
+	// Medium // 
+
+	<Button
+		android:text="Medium"
+		android:layout_width="match_parent"
+		android:layout_height="75.0dp"
+		android:minWidth="25px"
+		android:minHeight="25px"
+		android:id="@+id/btnMedium"
+		android:textColor="#ffe65100"
+		android:layout_marginTop="43.0dp" />
+	<TextView
+		android:text="This mode is good for testing your knowledge."
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/no-select3"
+		android:layout_marginLeft="15.0dp" />
+	<TextView
+		android:text="You have 20 seconds to answer each question."
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/no-select4"
+		android:layout_marginLeft="15.0dp"
+		android:textColor="#ffe65100" />
+
+	// Hard // 
+
+	<Button
+		android:text="Hard"
+		android:layout_width="match_parent"
+		android:layout_height="75.0dp"
+		android:minWidth="25px"
+		android:minHeight="25px"
+		android:id="@+id/btnHard"
+		android:textColor="#ff880e4f"
+		android:layout_marginTop="43.0dp" />
+	<TextView
+		android:text="This mode is good if you're up for a real challenge!"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/no-select5"
+		android:layout_marginLeft="15.0dp" />
+	<TextView
+		android:text="You have only 10 seconds to answer each question."
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/no-select6"
+		android:layout_marginLeft="15.0dp"
+		android:textColor="#ff880e4f" />
+</LinearLayout>

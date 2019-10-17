@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:paddingLeft="16dp"
+	android:paddingRight="16dp"
+	android:orientation="vertical"
+	android:textAlignment="center">
+	<TextView
+		android:text="Question 0/0"
+		android:textAppearance="?android:attr/textAppearanceLarge"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/txtQuestionCounter"
+		android:layout_marginTop="23.5dp"
+		android:textColor="#ff283593"/>
+	<TextView
+		android:text="1 + 1 = ?"
+		android:textAppearance="?android:attr/textAppearanceLarge"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/txtQuestionBig"
+		android:textAlignment="center"
+		android:textSize="50"
+		android:layout_marginTop="7.0dp" />
+
+</LinearLayout>
