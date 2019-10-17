@@ -6,7 +6,7 @@ using Android.Views;
 
 namespace EllieLib
 {
-    class AppWrapper
+    class PageWrapper
     {
         // todo add add view.
 
@@ -15,7 +15,7 @@ namespace EllieLib
 
         private List<int> active;
 
-        public AppWrapper()
+        public PageWrapper()
         {
             this.store = new Dictionary<int, object>();
             this.sounds = new Dictionary<int, MediaPlayer>();

@@ -17,6 +17,7 @@ namespace EllieLib
         public delegate void ValueReachedTargetEvent(object sender, EventArgs e);
         public event ValueReachedTargetEvent TargetReachedEvent;
 
+
         public EasyTimer(TimerType timerType, int interval, int initialValue, int targetValue)
         {
             this.timerType = timerType;
@@ -55,6 +56,18 @@ namespace EllieLib
             timer.Stop();
         }
 
+        public void Dispose()
+        {
+            this.timer.Dispose();
+        }
+
+        public void Restart()
+        {
+            this.Stop();
+            this.Value = initialValue;
+            this.Start();
+        }
+
         public void Tick(ElapsedEventHandler elapsedEventHandler)
         {
             this.timer.Elapsed += elapsedEventHandler;
@@ -71,8 +84,14 @@ namespace EllieLib
                 Value--;
             }
 
+            if (timerType == TimerType.Down)
+            {
+
+            }
+
             if (targetValue >= 0 && Value == targetValue)
             {
+                Console.WriteLine("yeet");
                 this.TargetReachedEvent(this, new EventArgs());
                 this.Stop();
             }

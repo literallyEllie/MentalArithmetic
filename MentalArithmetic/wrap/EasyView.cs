@@ -18,20 +18,20 @@ namespace EllieLib
         where T : View
     {
 
-        private readonly AppWrapper appWrapper;
+        private readonly PageWrapper appWrapper;
         private readonly View view;
         public enum SoundTrigger { None, OnClick, OnHover };
 
         private Dictionary<int, SoundTrigger> soundTriggers;
 
-        public EasyView(AppWrapper appWrapper, View view)
+        public EasyView(PageWrapper appWrapper, View view)
         {
             this.appWrapper = appWrapper;
             this.view = view;
             this.soundTriggers = new Dictionary<int, SoundTrigger>();
         }
 
-        public EasyView(AppWrapper appWrapper,
+        public EasyView(PageWrapper appWrapper,
             View view,
             EventHandler onClick)
                 : this(appWrapper, view)

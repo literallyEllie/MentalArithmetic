@@ -10,14 +10,14 @@ namespace MentalArithmetic
     public class MainActivity : AppCompatActivity
     {
 
-        private AppWrapper appWrapper = new AppWrapper();
+        private PageWrapper page = new PageWrapper();
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activity_main);
 
-            EasyView<Button> btnStart = new EasyView<Button>(appWrapper, FindViewById<Button>(Resource.Id.btnStart));
+            EasyView<Button> btnStart = new EasyView<Button>(page, FindViewById<Button>(Resource.Id.btnStart));
             btnStart.Click(delegate
             {
                 StartActivity(typeof(DifficultySelect));
