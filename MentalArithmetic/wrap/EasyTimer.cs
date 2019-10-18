@@ -36,9 +36,11 @@ namespace EllieLib
 
             this.timer = new Timer
             {
-                Interval = interval
+                Interval = interval,
+                AutoReset = true
             };
             this.timer.Elapsed += OnTick;
+           
         }
 
         public EasyTimer(TimerType timerType, int interval) 
@@ -48,12 +50,19 @@ namespace EllieLib
 
         public void Start()
         {
+            timer.AutoReset = true;
             timer.Start();
         }
 
         public void Stop()
         {
             timer.Stop();
+            timer.AutoReset = false;
+        }
+
+        public int GetInitialValue()
+        {
+            return this.initialValue;
         }
 
         public void Dispose()
@@ -97,6 +106,7 @@ namespace EllieLib
             }
             
         }
+        
 
     }
 

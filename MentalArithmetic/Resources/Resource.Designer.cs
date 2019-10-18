@@ -2227,26 +2227,26 @@ namespace MentalArithmetic
 			// aapt resource value: 0x7f020053
 			public const int avd_hide_password = 2130837587;
 			
-			// aapt resource value: 0x7f02006a
-			public const int avd_hide_password_1 = 2130837610;
-			
-			// aapt resource value: 0x7f02006b
-			public const int avd_hide_password_2 = 2130837611;
-			
 			// aapt resource value: 0x7f02006c
-			public const int avd_hide_password_3 = 2130837612;
+			public const int avd_hide_password_1 = 2130837612;
+			
+			// aapt resource value: 0x7f02006d
+			public const int avd_hide_password_2 = 2130837613;
+			
+			// aapt resource value: 0x7f02006e
+			public const int avd_hide_password_3 = 2130837614;
 			
 			// aapt resource value: 0x7f020054
 			public const int avd_show_password = 2130837588;
 			
-			// aapt resource value: 0x7f02006d
-			public const int avd_show_password_1 = 2130837613;
-			
-			// aapt resource value: 0x7f02006e
-			public const int avd_show_password_2 = 2130837614;
-			
 			// aapt resource value: 0x7f02006f
-			public const int avd_show_password_3 = 2130837615;
+			public const int avd_show_password_1 = 2130837615;
+			
+			// aapt resource value: 0x7f020070
+			public const int avd_show_password_2 = 2130837616;
+			
+			// aapt resource value: 0x7f020071
+			public const int avd_show_password_3 = 2130837617;
 			
 			// aapt resource value: 0x7f020055
 			public const int design_bottom_navigation_item_background = 2130837589;
@@ -2293,11 +2293,11 @@ namespace MentalArithmetic
 			// aapt resource value: 0x7f020063
 			public const int notification_icon_background = 2130837603;
 			
-			// aapt resource value: 0x7f020068
-			public const int notification_template_icon_bg = 2130837608;
+			// aapt resource value: 0x7f02006a
+			public const int notification_template_icon_bg = 2130837610;
 			
-			// aapt resource value: 0x7f020069
-			public const int notification_template_icon_low_bg = 2130837609;
+			// aapt resource value: 0x7f02006b
+			public const int notification_template_icon_low_bg = 2130837611;
 			
 			// aapt resource value: 0x7f020064
 			public const int notification_tile_bg = 2130837604;
@@ -2306,10 +2306,16 @@ namespace MentalArithmetic
 			public const int notify_panel_notification_icon_bg = 2130837605;
 			
 			// aapt resource value: 0x7f020066
-			public const int tooltip_frame_dark = 2130837606;
+			public const int RIGHT = 2130837606;
 			
 			// aapt resource value: 0x7f020067
-			public const int tooltip_frame_light = 2130837607;
+			public const int tooltip_frame_dark = 2130837607;
+			
+			// aapt resource value: 0x7f020068
+			public const int tooltip_frame_light = 2130837608;
+			
+			// aapt resource value: 0x7f020069
+			public const int WRONG = 2130837609;
 			
 			static Drawable()
 			{
@@ -2576,6 +2582,9 @@ namespace MentalArithmetic
 			// aapt resource value: 0x7f08005f
 			public const int image = 2131230815;
 			
+			// aapt resource value: 0x7f0800cb
+			public const int imgRightWrong = 2131230923;
+			
 			// aapt resource value: 0x7f0800b6
 			public const int info = 2131230902;
 			
@@ -2606,14 +2615,14 @@ namespace MentalArithmetic
 			// aapt resource value: 0x7f080061
 			public const int list_item = 2131230817;
 			
-			// aapt resource value: 0x7f0800cd
-			public const int masked = 2131230925;
+			// aapt resource value: 0x7f0800ce
+			public const int masked = 2131230926;
 			
 			// aapt resource value: 0x7f0800af
 			public const int media_actions = 2131230895;
 			
-			// aapt resource value: 0x7f0800cb
-			public const int message = 2131230923;
+			// aapt resource value: 0x7f0800cc
+			public const int message = 2131230924;
 			
 			// aapt resource value: 0x7f080031
 			public const int middle = 2131230769;
@@ -2933,8 +2942,8 @@ namespace MentalArithmetic
 			// aapt resource value: 0x7f080016
 			public const int view_offset_helper = 2131230742;
 			
-			// aapt resource value: 0x7f0800cc
-			public const int visible = 2131230924;
+			// aapt resource value: 0x7f0800cd
+			public const int visible = 2131230925;
 			
 			// aapt resource value: 0x7f08003c
 			public const int withText = 2131230780;

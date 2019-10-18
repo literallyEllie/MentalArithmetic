@@ -6,6 +6,7 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
@@ -29,11 +30,18 @@ namespace MentalArithmetic
 
         private DifficultyLevel difficultyLevel = DifficultyLevel.Easy;
 
+        private int score;
         private int currentQuestionNumber = 0;
         private RandomQuestion currentQuestion;
 
         private EasyView<TextView> txtQuestionCounter, txtScore, txtTimeRemaining, txtQuestionBig;
         private EasyView<EditText> inAnswer;
+        private EasyView<Button> btnSubmit;
+        private EasyView<ImageView> imgRightWrong;
+
+        private Color remainingColorGood = new Color(40, 54, 147),
+            remainingColorBad = new Color(106, 27, 154),
+            remainingColorNone = new Color(213, 0, 0);
 
         private EasyTimer easyTimer;
 
@@ -69,7 +77,6 @@ namespace MentalArithmetic
                     break;
             }
 
-
             // Load operators
             if (operators.Count == 0)
             {
@@ -92,14 +99,33 @@ namespace MentalArithmetic
             else
             {
                 this.txtTimeRemaining.Show();
-                this.txtTimeRemaining.Text($"{this.easyTimer.Value}s remaining");
                 this.easyTimer.Tick(delegate
                 {
-                    this.txtTimeRemaining.Text($"{this.easyTimer.Value}s remaining");
+                    if (this.currentQuestion != null && this.currentQuestion.Answered) return;
+
+                    // If no time
+                    if (this.currentQuestion != null && this.currentQuestion.TimeUp)
+                    {
+                        this.txtTimeRemaining.Color(this.remainingColorNone);
+                        this.txtTimeRemaining.Text("TIMEUP!");
+                        this.btnSubmit.Text("Next Question");
+                    }
+                    else
+                    {
+                        this.txtTimeRemaining.Text($"{this.easyTimer.Value}s remaining");
+
+                        // if value less than init / 2 (bad)
+                        this.UpdateRemainingColor();
+                    }
                 });
+
+                this.easyTimer.TargetReachedEvent += delegate
+                {
+                    if (this.currentQuestion.Answered) return;
+
+                    this.currentQuestion.TimeUp = true;
+                };
             }
-
-
 
             NextQuestion();
         }
@@ -112,6 +138,7 @@ namespace MentalArithmetic
                 return;
             }
 
+            this.imgRightWrong.Hide(true);
             this.currentQuestion = GetNewQuestion();
 
             // timer
@@ -121,11 +148,7 @@ namespace MentalArithmetic
             }
 
             // update text fields
-            this.txtQuestionCounter.Text($"{this.currentQuestionNumber}/{MAX_QUESTIONS}");
-            this.txtQuestionBig.Text(this.currentQuestion.GetEquation());
-            this.inAnswer.Text("");
-
-
+            this.UpdateTextFields();
         }
 
         public RandomQuestion GetNewQuestion()
@@ -147,22 +170,39 @@ namespace MentalArithmetic
             this.txtQuestionBig = new EasyView<TextView>(page, FindViewById<TextView>(Resource.Id.txtQuestionBig));
             this.inAnswer = new EasyView<EditText>(page, FindViewById<EditText>(Resource.Id.inputAnswer));
 
-            new EasyView<Button>(page, FindViewById<Button>(Resource.Id.btnSubmit))
-                .Click(delegate
-                {
-                    if (this.currentQuestion == null) return;
+            this.imgRightWrong = new EasyView<ImageView>(page, FindViewById<ImageView>(Resource.Id.imgRightWrong));
 
-                    int answer = Parse(this.inAnswer.Text()); 
+            this.btnSubmit = new EasyView<Button>(page, FindViewById<Button>(Resource.Id.btnSubmit));
+            this.btnSubmit.Click(delegate
+                {
+
+                    if (this.currentQuestion.TimeUp || this.currentQuestion.Answered)
+                    {
+                        this.NextQuestion();
+                        return;
+                    }
+
+                    if (this.inAnswer.Text().Trim() == ""
+                        || this.currentQuestion.TimeUp) return;
+
+                    int answer = Parse(this.inAnswer.Text());
+
+                    this.currentQuestion.Answered = true;
+                    this.btnSubmit.Text("Next Question");
+                    this.imgRightWrong.Show();
 
                     if (this.currentQuestion.GetAnswer() == answer)
                     {
                         // right
                         Console.WriteLine("sant");
-                        this.NextQuestion();
+                        this.score++;
+                        this.txtScore.Text($"Score: {this.score}");
+                        this.imgRightWrong.ImageSource(Resource.Drawable.RIGHT);
                     } else
                     {
                         // wrong
                         Console.WriteLine("feil");
+                        this.imgRightWrong.ImageSource(Resource.Drawable.WRONG);
                     }
                 });
 
@@ -178,12 +218,41 @@ namespace MentalArithmetic
             return parsed;
         }
 
+        private void UpdateTextFields()
+        {
+            this.txtQuestionCounter.Text($"{this.currentQuestionNumber}/{MAX_QUESTIONS}");
+            this.txtQuestionBig.Text(this.currentQuestion.GetEquation());
+            this.txtScore.Text($"Score: {this.score}");
+            this.inAnswer.Text("");
+            this.btnSubmit.Text("Submit");
+            if (this.easyTimer != null)
+            {
+                this.txtTimeRemaining.Text($"{this.easyTimer.Value}s remaining");
+                this.UpdateRemainingColor();
+            }
+        }
+
+        private void UpdateRemainingColor()
+        {
+            if (this.easyTimer.Value < this.easyTimer.GetInitialValue() / 2)
+            {
+                this.txtTimeRemaining.Color(this.remainingColorBad);
+            }
+            else
+            {
+                this.txtTimeRemaining.Color(this.remainingColorGood);
+            }
+        }
+
         public class RandomQuestion
         {
             public KeyValuePair<Operator, String> OperatorSet { get; set; }
 
             private int left, right;
             private double answer;
+
+            public bool Answered { get; set; }
+            public bool TimeUp { get; set; }
 
             public RandomQuestion(KeyValuePair<Operator, String> operatorSet)
             {
@@ -192,8 +261,8 @@ namespace MentalArithmetic
                 do
                 {
                     NewValueSet();
-                } while (!(Math.Floor(this.answer) == this.answer && this.answer > 0));
-
+                } while (!(Math.Floor(this.answer) == this.answer && this.answer >= 0));
+                
             }
 
             public void NewValueSet()

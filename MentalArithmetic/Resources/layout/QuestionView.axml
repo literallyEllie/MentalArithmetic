@@ -59,5 +59,10 @@
 		android:layout_height="73.5dp"
 		android:id="@+id/btnSubmit"
 		android:layout_marginTop="25.5dp" />
+	<ImageView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:src="@drawable/RIGHT"
+		android:id="@+id/imgRightWrong" />
 
 </LinearLayout>

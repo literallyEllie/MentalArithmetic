@@ -5,6 +5,7 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Graphics;
 using Android.Media;
 using Android.OS;
 using Android.Runtime;
@@ -67,9 +68,30 @@ namespace EllieLib
             }
         }
 
+        public void Color(Color color)
+        {
+            if (this.view is TextView)
+            {
+                (this.view as TextView).SetTextColor(color);
+            }
+        }
+
+        public void Color(byte red, byte green, byte blue)
+        {
+            this.Color(new Color(red, green, blue));
+        }
+
         public void Show()
         {
             this.view.Visibility = ViewStates.Visible;
+        }
+
+        public void ImageSource(int resourceId)
+        {
+            if (this.view is ImageView)
+            {
+                (this.view as ImageView).SetImageResource(resourceId);
+            }
         }
 
         public void Hide(bool gone)
