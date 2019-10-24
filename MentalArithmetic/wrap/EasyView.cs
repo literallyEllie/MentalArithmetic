@@ -99,6 +99,11 @@ namespace EllieLib
             this.view.Visibility = gone ? ViewStates.Gone : ViewStates.Invisible;
         }
 
+        public void AllowInteraction(bool allowInteraction)
+        {
+            this.view.Enabled = allowInteraction;
+        }
+
         public void Click(EventHandler eventHandler)
         {
             this.view.Click += eventHandler;

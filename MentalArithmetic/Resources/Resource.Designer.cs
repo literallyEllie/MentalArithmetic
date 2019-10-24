@@ -2438,8 +2438,8 @@ namespace MentalArithmetic
 			// aapt resource value: 0x7f0800a0
 			public const int btnEasy = 2131230880;
 			
-			// aapt resource value: 0x7f0800c4
-			public const int btnGoAgain = 2131230916;
+			// aapt resource value: 0x7f0800c3
+			public const int btnGoAgain = 2131230915;
 			
 			// aapt resource value: 0x7f0800a6
 			public const int btnHard = 2131230886;
@@ -2450,8 +2450,8 @@ namespace MentalArithmetic
 			// aapt resource value: 0x7f080090
 			public const int btnStart = 2131230864;
 			
-			// aapt resource value: 0x7f0800ca
-			public const int btnSubmit = 2131230922;
+			// aapt resource value: 0x7f0800c9
+			public const int btnSubmit = 2131230921;
 			
 			// aapt resource value: 0x7f080063
 			public const int buttonPanel = 2131230819;
@@ -2582,14 +2582,14 @@ namespace MentalArithmetic
 			// aapt resource value: 0x7f08005f
 			public const int image = 2131230815;
 			
-			// aapt resource value: 0x7f0800cb
-			public const int imgRightWrong = 2131230923;
+			// aapt resource value: 0x7f0800ca
+			public const int imgRightWrong = 2131230922;
 			
 			// aapt resource value: 0x7f0800b6
 			public const int info = 2131230902;
 			
-			// aapt resource value: 0x7f0800c9
-			public const int inputAnswer = 2131230921;
+			// aapt resource value: 0x7f0800c8
+			public const int inputAnswer = 2131230920;
 			
 			// aapt resource value: 0x7f080059
 			public const int italic = 2131230809;
@@ -2615,14 +2615,14 @@ namespace MentalArithmetic
 			// aapt resource value: 0x7f080061
 			public const int list_item = 2131230817;
 			
-			// aapt resource value: 0x7f0800ce
-			public const int masked = 2131230926;
+			// aapt resource value: 0x7f0800cd
+			public const int masked = 2131230925;
 			
 			// aapt resource value: 0x7f0800af
 			public const int media_actions = 2131230895;
 			
-			// aapt resource value: 0x7f0800cc
-			public const int message = 2131230924;
+			// aapt resource value: 0x7f0800cb
+			public const int message = 2131230923;
 			
 			// aapt resource value: 0x7f080031
 			public const int middle = 2131230769;
@@ -2900,35 +2900,32 @@ namespace MentalArithmetic
 			// aapt resource value: 0x7f080013
 			public const int transition_transform = 2131230739;
 			
-			// aapt resource value: 0x7f0800c1
-			public const int txtMode = 2131230913;
-			
-			// aapt resource value: 0x7f0800c3
-			public const int txtQImprove0 = 2131230915;
+			// aapt resource value: 0x7f0800c0
+			public const int txtMode = 2131230912;
 			
 			// aapt resource value: 0x7f0800c2
-			public const int txtQImproveHeader = 2131230914;
+			public const int txtQImprove0 = 2131230914;
+			
+			// aapt resource value: 0x7f0800c1
+			public const int txtQImproveHeader = 2131230913;
 			
 			// aapt resource value: 0x7f0800be
-			public const int txtQRight = 2131230910;
-			
-			// aapt resource value: 0x7f0800bf
-			public const int txtQWrong = 2131230911;
-			
-			// aapt resource value: 0x7f0800c8
-			public const int txtQuestionBig = 2131230920;
-			
-			// aapt resource value: 0x7f0800c5
-			public const int txtQuestionCounter = 2131230917;
-			
-			// aapt resource value: 0x7f0800c6
-			public const int txtScore = 2131230918;
+			public const int txtQOverview = 2131230910;
 			
 			// aapt resource value: 0x7f0800c7
-			public const int txtTimeRemaining = 2131230919;
+			public const int txtQuestionBig = 2131230919;
 			
-			// aapt resource value: 0x7f0800c0
-			public const int txtTimeTaken = 2131230912;
+			// aapt resource value: 0x7f0800c4
+			public const int txtQuestionCounter = 2131230916;
+			
+			// aapt resource value: 0x7f0800c5
+			public const int txtScore = 2131230917;
+			
+			// aapt resource value: 0x7f0800c6
+			public const int txtTimeRemaining = 2131230918;
+			
+			// aapt resource value: 0x7f0800bf
+			public const int txtTimeTaken = 2131230911;
 			
 			// aapt resource value: 0x7f08002d
 			public const int uniform = 2131230765;
@@ -2942,8 +2939,8 @@ namespace MentalArithmetic
 			// aapt resource value: 0x7f080016
 			public const int view_offset_helper = 2131230742;
 			
-			// aapt resource value: 0x7f0800cd
-			public const int visible = 2131230925;
+			// aapt resource value: 0x7f0800cc
+			public const int visible = 2131230924;
 			
 			// aapt resource value: 0x7f08003c
 			public const int withText = 2131230780;

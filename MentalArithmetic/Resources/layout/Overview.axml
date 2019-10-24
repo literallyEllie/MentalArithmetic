@@ -35,16 +35,9 @@
 		android:text="0/0"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:id="@+id/txtQRight"
+		android:id="@+id/txtQOverview"
 		android:textColor="#ff4caf50"
 		android:textSize="30.0dp"
-		android:layout_marginLeft="10.0dp" />
-	<TextView
-		android:text="You answered 0/0 questions"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:id="@+id/txtQWrong"
-		android:textColor="#ff388e3c"
 		android:layout_marginLeft="10.0dp" />
 	<TextView
 		android:text="In 0s"

@@ -26,13 +26,15 @@ namespace MentalArithmetic
 
         private Dictionary<Operator, String> operators = new Dictionary<Operator, String>();
 
-        PageWrapper page;
+        private PageWrapper page;
 
         private DifficultyLevel difficultyLevel = DifficultyLevel.Easy;
 
         private int score;
         private int currentQuestionNumber = 0;
         private RandomQuestion currentQuestion;
+
+        private List<RandomQuestion> wrongQuestions;
 
         private EasyView<TextView> txtQuestionCounter, txtScore, txtTimeRemaining, txtQuestionBig;
         private EasyView<EditText> inAnswer;
@@ -44,6 +46,7 @@ namespace MentalArithmetic
             remainingColorNone = new Color(213, 0, 0);
 
         private EasyTimer easyTimer;
+        private int totalElapsedTime;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -51,13 +54,7 @@ namespace MentalArithmetic
             SetContentView(Resource.Layout.QuestionView);
 
             string difficulty = Intent.GetStringExtra("Difficulty");
-            foreach (DifficultyLevel level in Enum.GetValues(typeof(DifficultyLevel))) {
-                if (level.ToString().Equals(difficulty))
-                {
-                    this.difficultyLevel = level;
-                    break;
-                }
-            }
+            this.difficultyLevel = DifficultyLevelGet.FromString(difficulty);
 
             // Timer
             if (this.easyTimer != null)
@@ -69,6 +66,9 @@ namespace MentalArithmetic
 
             switch (this.difficultyLevel)
             {
+                case DifficultyLevel.Easy:
+                    this.easyTimer = new EasyTimer(EasyTimer.TimerType.Up, 1000);
+                    break;
                 case DifficultyLevel.Medium:
                     this.easyTimer = new EasyTimer(EasyTimer.TimerType.Down, 1000, 20, 0);
                     break;
@@ -91,33 +91,22 @@ namespace MentalArithmetic
             {
                 LoadPage();
             }
+            else
+            {
+                this.score = 0;
+                this.currentQuestion = null;
+                this.totalElapsedTime = 0;
+                this.UpdateTextFields();
+                this.wrongQuestions.Clear();
+            }
 
-            if (this.easyTimer == null)
+            if (this.difficultyLevel == DifficultyLevel.Easy)
             {
                 this.txtTimeRemaining.Hide(true);
             }
             else
             {
                 this.txtTimeRemaining.Show();
-                this.easyTimer.Tick(delegate
-                {
-                    if (this.currentQuestion != null && this.currentQuestion.Answered) return;
-
-                    // If no time
-                    if (this.currentQuestion != null && this.currentQuestion.TimeUp)
-                    {
-                        this.txtTimeRemaining.Color(this.remainingColorNone);
-                        this.txtTimeRemaining.Text("TIMEUP!");
-                        this.btnSubmit.Text("Next Question");
-                    }
-                    else
-                    {
-                        this.txtTimeRemaining.Text($"{this.easyTimer.Value}s remaining");
-
-                        // if value less than init / 2 (bad)
-                        this.UpdateRemainingColor();
-                    }
-                });
 
                 this.easyTimer.TargetReachedEvent += delegate
                 {
@@ -125,7 +114,31 @@ namespace MentalArithmetic
 
                     this.currentQuestion.TimeUp = true;
                 };
+
             }
+
+            this.easyTimer.Tick(delegate
+            {
+                if (this.currentQuestion != null && this.currentQuestion.Answered) return;
+
+                    // If no time
+                    if (this.currentQuestion != null && this.currentQuestion.TimeUp)
+                {
+                    this.inAnswer.AllowInteraction(false);
+                    this.txtTimeRemaining.Color(this.remainingColorNone);
+                    this.txtTimeRemaining.Text("TIMEUP!");
+                    this.btnSubmit.Text("Next Question");
+                }
+                else
+                {
+                    this.txtTimeRemaining.Text($"{this.easyTimer.Value}s remaining");
+                    this.totalElapsedTime++;
+
+                    this.UpdateRemainingColor();
+                }
+            });
+
+
 
             NextQuestion();
         }
@@ -134,7 +147,7 @@ namespace MentalArithmetic
         {
             if (this.currentQuestionNumber++ == MAX_QUESTIONS)
             {
-                Console.WriteLine("fer");
+                this.GoToOverview();
                 return;
             }
 
@@ -164,6 +177,9 @@ namespace MentalArithmetic
 
         private void LoadPage()
         {
+            this.page = new PageWrapper();
+            this.wrongQuestions = new List<RandomQuestion>();
+
             this.txtQuestionCounter = new EasyView<TextView>(page, FindViewById<TextView>(Resource.Id.txtQuestionCounter));
             this.txtScore = new EasyView<TextView>(page, FindViewById<TextView>(Resource.Id.txtScore));
             this.txtTimeRemaining = new EasyView<TextView>(page, FindViewById<TextView>(Resource.Id.txtTimeRemaining));
@@ -186,26 +202,54 @@ namespace MentalArithmetic
                         || this.currentQuestion.TimeUp) return;
 
                     int answer = Parse(this.inAnswer.Text());
+                    this.inAnswer.AllowInteraction(false);
 
                     this.currentQuestion.Answered = true;
-                    this.btnSubmit.Text("Next Question");
+                    this.btnSubmit.Text(this.currentQuestionNumber  == MAX_QUESTIONS ? "See how you did!" : "Next Question");
                     this.imgRightWrong.Show();
 
                     if (this.currentQuestion.GetAnswer() == answer)
                     {
                         // right
-                        Console.WriteLine("sant");
                         this.score++;
                         this.txtScore.Text($"Score: {this.score}");
                         this.imgRightWrong.ImageSource(Resource.Drawable.RIGHT);
                     } else
                     {
                         // wrong
-                        Console.WriteLine("feil");
+                        this.wrongQuestions.Add(this.currentQuestion);
                         this.imgRightWrong.ImageSource(Resource.Drawable.WRONG);
                     }
                 });
 
+        }
+
+        private void GoToOverview()
+        {
+            Intent intent = new Intent(this, typeof(Overview));
+            intent.PutExtra("Score", this.score);
+            intent.PutExtra("Questions", MAX_QUESTIONS);
+            intent.PutExtra("TotalTime", this.totalElapsedTime);
+            intent.PutExtra("Difficulty", this.difficultyLevel.ToString());
+
+            intent.PutExtra("Wrong", this.wrongQuestions.Count);
+
+            if (this.wrongQuestions.Count > 0)
+            {
+
+                for (int i = 0; i < this.wrongQuestions.Count; i++)
+                {
+                    RandomQuestion wrongQuestion = this.wrongQuestions[i];
+
+                    String equation = wrongQuestion.GetEquation();
+
+                    intent.PutExtra("Wrong_" + i + "_Equation", equation.Remove(equation.Length - 2));
+
+                }
+
+            }
+
+            StartActivity(intent);
         }
 
         private int Parse(String input)
@@ -224,6 +268,7 @@ namespace MentalArithmetic
             this.txtQuestionBig.Text(this.currentQuestion.GetEquation());
             this.txtScore.Text($"Score: {this.score}");
             this.inAnswer.Text("");
+            this.inAnswer.AllowInteraction(true);
             this.btnSubmit.Text("Submit");
             if (this.easyTimer != null)
             {
