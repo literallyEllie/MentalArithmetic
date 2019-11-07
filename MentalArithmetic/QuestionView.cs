@@ -112,9 +112,10 @@ namespace MentalArithmetic
 
                 this.easyTimer.TargetReachedEvent += delegate
                 {
-                    if (this.currentQuestion.Answered) return;
+                    if (this.currentQuestion.Answered && !this.currentQuestion.TimeUp) return;
 
                     this.currentQuestion.TimeUp = true;
+                    this.wrongQuestions.Add(this.currentQuestion);
                 };
 
             }
