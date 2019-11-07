@@ -19,6 +19,8 @@ namespace MentalArithmetic
     public class QuestionView : Activity
     {
 
+        public static readonly String I_WRONG_Q = "RQ_";
+
         private static Random random = new Random();
         private static readonly int MAX_QUESTIONS = 10;
 
@@ -243,8 +245,7 @@ namespace MentalArithmetic
 
                     String equation = wrongQuestion.GetEquation();
 
-                    intent.PutExtra("Wrong_" + i + "_Equation", equation.Remove(equation.Length - 2));
-
+                    intent.PutExtra(I_WRONG_Q + i, equation.Remove(equation.Length - 1) + wrongQuestion.GetAnswer());
                 }
 
             }
