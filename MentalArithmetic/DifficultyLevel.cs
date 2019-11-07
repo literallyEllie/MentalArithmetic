@@ -25,32 +25,17 @@ namespace MentalArithmetic
     static class DifficultyLevelGet
     {
 
-        public static String GetHex(this DifficultyLevel difficulty)
-        {
-
-            switch (difficulty)
-            {
-                case DifficultyLevel.Medium:
-                    return "#ffe65100";
-                case DifficultyLevel.Hard:
-                    return "#ff880e4f";
-                default:
-                    return "#ff43a047";
-            }
-
-        }
-
         public static Color GetColor(this DifficultyLevel difficulty)
         {
 
             switch (difficulty)
             {
                 case DifficultyLevel.Medium:
-                    return new Color(255, 230, 81);
+                    return new Color(230, 81, 0);
                 case DifficultyLevel.Hard:
-                    return new Color(255, 136, 14);
+                    return new Color(136, 14, 79);
                 default:
-                    return new Color(255, 67, 160);
+                    return new Color(67, 160, 71);
             }
 
         }

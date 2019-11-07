@@ -6,6 +6,7 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Content.PM;
 using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
@@ -15,7 +16,7 @@ using EllieLib;
 
 namespace MentalArithmetic
 {
-    [Activity(Label = "QuestionView")]
+    [Activity(Label = "QuestionView", ScreenOrientation = ScreenOrientation.Portrait)]
     public class QuestionView : Activity
     {
 
@@ -201,7 +202,7 @@ namespace MentalArithmetic
                         return;
                     }
 
-                    if (this.inAnswer.Text().Trim() == ""
+                    if (this.inAnswer.IsEmpty()
                         || this.currentQuestion.TimeUp) return;
 
                     int answer = Parse(this.inAnswer.Text());

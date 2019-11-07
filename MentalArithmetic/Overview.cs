@@ -1,11 +1,12 @@
 ﻿using Android.App;
+using Android.Content.PM;
 using Android.OS;
 using Android.Widget;
 using System.Collections.Generic;
 
 namespace MentalArithmetic
 {
-    [Activity(Label = "Overview")]
+    [Activity(Label = "Overview", ScreenOrientation = ScreenOrientation.Portrait)]
     public class Overview : Activity
     {
 

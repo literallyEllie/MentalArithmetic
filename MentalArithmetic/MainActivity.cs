@@ -1,4 +1,5 @@
 ﻿using Android.App;
+using Android.Content.PM;
 using Android.OS;
 using Android.Support.V7.App;
 using Android.Widget;
@@ -6,7 +7,7 @@ using EllieLib;
 
 namespace MentalArithmetic
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
+    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait)]
     public class MainActivity : AppCompatActivity
     {
 

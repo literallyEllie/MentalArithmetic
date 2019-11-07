@@ -68,6 +68,11 @@ namespace EllieLib
             }
         }
 
+        public bool IsEmpty()
+        {
+            return this.view is TextView && (this.view as TextView).Text.Trim() == "";
+        }
+
         public void Color(Color color)
         {
             if (this.view is TextView)
