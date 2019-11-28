@@ -125,6 +125,12 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\WRONG.png" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Localization\de_DE.resx" />
+    <EmbeddedResource Include="Localization\es_ES.resx" />
+    <EmbeddedResource Include="Localization\no_NO.resx" />
+    <EmbeddedResource Include="Localization\en_EN.resx" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
     Other similar extension points exist, see Microsoft.Common.targets.

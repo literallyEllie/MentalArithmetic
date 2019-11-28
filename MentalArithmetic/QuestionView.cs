@@ -6,6 +6,7 @@ using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Android.Graphics;
+using Android.Media;
 using Android.OS;
 using Android.Widget;
 using EllieLib;
@@ -48,6 +49,9 @@ namespace MentalArithmetic
         private EasyView<EditText> inAnswer;
         private EasyView<Button> btnSubmit;
         private EasyView<ImageView> imgRightWrong;
+
+        // Sounds
+        private MediaPlayer soundRight, soundWrong;
 
         // Colors for countdowns.
         private Color remainingColorGood = new Color(40, 54, 147),
@@ -219,6 +223,9 @@ namespace MentalArithmetic
 
             this.imgRightWrong = new EasyView<ImageView>(page, FindViewById<ImageView>(Resource.Id.imgRightWrong));
 
+            this.soundRight = page.AddSound(Resource.Raw.sound_right, this);
+            this.soundWrong = page.AddSound(Resource.Raw.sound_wrong, this);
+
             // Variable name submit does not always reflect the text. 
             this.btnSubmit = new EasyView<Button>(page, FindViewById<Button>(Resource.Id.btnSubmit), delegate
                 {
@@ -237,10 +244,10 @@ namespace MentalArithmetic
                     int answer = Parse(this.inAnswer.Text());
                     // Stop interaction so they can't change their answer after submitting.
                     this.inAnswer.AllowInteraction(false);
-                    
+
                     // Register it is answered and update the "submit" button respectively.
                     this.currentQuestion.Answered = true;
-                    this.btnSubmit.Text(this.currentQuestionNumber  == MAX_QUESTIONS ? "See how you did!" : "Next Question");
+                    this.btnSubmit.Text(this.currentQuestionNumber == MAX_QUESTIONS ? "See how you did!" : "Next Question");
 
                     // If they got it right.
                     if (this.currentQuestion.GetAnswer() == answer)
@@ -250,18 +257,20 @@ namespace MentalArithmetic
                         this.txtScore.Text($"Score: {this.score}");
                         // Display image for when they get it right.
                         this.imgRightWrong.ImageSource(Resource.Drawable.RIGHT);
-                    } else
+                        this.soundRight.Start();
+                    }
+                    else
                     {
                         // They got it wrong, so register as wrong question.
                         this.wrongQuestions.Add(this.currentQuestion);
                         // Display image for when they get it wrong.
                         this.imgRightWrong.ImageSource(Resource.Drawable.WRONG);
+                        this.soundWrong.Start();
                     }
 
                     // Show if they got right or wrong.
                     this.imgRightWrong.Show();
                 });
-
         }
 
         // <summary>Method to prepare user performance and pass it on the Overview page.</summary>
@@ -280,7 +289,6 @@ namespace MentalArithmetic
             // If they got more than 0 questions wrong.
             if (this.wrongQuestions.Count > 0)
             {
-
                 for (int i = 0; i < this.wrongQuestions.Count; i++)
                 {
                     RandomQuestion wrongQuestion = this.wrongQuestions[i];
@@ -289,8 +297,9 @@ namespace MentalArithmetic
                     // Construct a correct equation by removing the "?" at the end of the equation and appending the correct answer.
                     intent.PutExtra(I_WRONG_Q + i, equation.Remove(equation.Length - 1) + wrongQuestion.GetAnswer());
                 }
-
             }
+            this.soundRight.Stop();
+            this.soundWrong.Stop();            
 
             // Change page.
             StartActivity(intent);

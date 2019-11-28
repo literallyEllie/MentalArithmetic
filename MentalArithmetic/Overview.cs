@@ -1,5 +1,6 @@
 ﻿using Android.App;
 using Android.Content.PM;
+using Android.Media;
 using Android.OS;
 using Android.Widget;
 using System.Collections.Generic;
@@ -15,6 +16,9 @@ namespace MentalArithmetic
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Overview);
+
+            MediaPlayer soundClap = MediaPlayer.Create(this, Resource.Raw.sound_clap);
+            soundClap.Start();
 
             // Get their results.
             int score = Intent.GetIntExtra("Score", 0);
@@ -67,6 +71,7 @@ namespace MentalArithmetic
             // When they want to start again, start DifficultySelect page view.
             FindViewById<Button>(Resource.Id.btnGoAgain).Click += delegate
             {
+                soundClap.Stop();
                 StartActivity(typeof(DifficultySelect));
             };
 

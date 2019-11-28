@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="DifficultyLevelEasy" xml:space="preserve">
+    <value>Enkel</value>
+  </data>
+  <data name="DifficultyLevelHard" xml:space="preserve">
+    <value>Harde</value>
+  </data>
+  <data name="DifficultyLevelMedium" xml:space="preserve">
+    <value>Middels</value>
+  </data>
+  <data name="DifficultySelectEasyDescription" xml:space="preserve">
+    <value>Denne vanskelighet er god for å varme opp</value>
+  </data>
+  <data name="DifficultySelectEasyTime" xml:space="preserve">
+    <value>Du kan tar så lenge du vil på hvert spørsmål</value>
+  </data>
+  <data name="DifficultySelectHardDescription" xml:space="preserve">
+    <value>Denne modusen er god om du vil ha en utfordring</value>
+  </data>
+  <data name="DifficultySelectHardTime" xml:space="preserve">
+    <value>Du har bare 10 sek. for å svare hvert spørsmål</value>
+  </data>
+  <data name="DifficultySelectHeader" xml:space="preserve">
+    <value>Valg vanskelighetsmodus</value>
+  </data>
+  <data name="DifficultySelectMediumDescription" xml:space="preserve">
+    <value>Denne modusen er god for å teste kunnskapen din</value>
+  </data>
+  <data name="DifficultySelectMediumTime" xml:space="preserve">
+    <value>Du har 20 sek. for å svare hvert spørsmål</value>
+  </data>
+  <data name="MainHeader" xml:space="preserve">
+    <value>Er du klar for å forbedre deg?</value>
+  </data>
+  <data name="MainHowPlay" xml:space="preserve">
+    <value>Slik spiller du</value>
+  </data>
+  <data name="MainRule1" xml:space="preserve">
+    <value>1) Valg vanskelighetsmodus</value>
+  </data>
+  <data name="MainRule2" xml:space="preserve">
+    <value>2) Svar spørsmålene</value>
+  </data>
+  <data name="MainRule3" xml:space="preserve">
+    <value>3) Forbedre ferdighetene dine!</value>
+  </data>
+  <data name="MainStart" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="QuestionOverviewGoAgain" xml:space="preserve">
+    <value>Gå igjen</value>
+  </data>
+  <data name="QuestionOverviewHeader" xml:space="preserve">
+    <value>Bra jobba!</value>
+  </data>
+  <data name="QuestionOverviewHeader2" xml:space="preserve">
+    <value>Her er hvordan du gjort</value>
+  </data>
+  <data name="QuestionOverviewImprove" xml:space="preserve">
+    <value>Spørsmåler til å forbedre på:</value>
+  </data>
+  <data name="QuestionOverviewMode" xml:space="preserve">
+    <value>På {0} Mode</value>
+  </data>
+  <data name="QuestionOverviewScore" xml:space="preserve">
+    <value>{0}/{1}</value>
+  </data>
+  <data name="QuestionOverviewTime" xml:space="preserve">
+    <value>I {0}s</value>
+  </data>
+  <data name="QuestionViewCounter" xml:space="preserve">
+    <value>Spørsmål {0}/{1}</value>
+  </data>
+  <data name="QuestionViewEnd" xml:space="preserve">
+    <value>Se hvordan du gjort</value>
+  </data>
+  <data name="QuestionViewNextQuestion" xml:space="preserve">
+    <value>Neste Spørsmål</value>
+  </data>
+  <data name="QuestionViewScore" xml:space="preserve">
+    <value>Poeng: {0}</value>
+  </data>
+  <data name="QuestionViewSubmit" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="QuestionViewTimeRemaining" xml:space="preserve">
+    <value>{0}s igjen</value>
+  </data>
+  <data name="QusetionViewQuestion" xml:space="preserve">
+    <value>{0} {1} {2} = {3}</value>
+  </data>
+  <data name="QusetionViewTimeUp" xml:space="preserve">
+    <value>TID OPPE!</value>
+  </data>
+</root>
